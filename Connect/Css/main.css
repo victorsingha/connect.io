@@ -1,4 +1,15 @@
-﻿.logincontainer {
+﻿@import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@500&display=swap');
+
+
+.logincontainer {
     width: 300px;
     height:max-content;
+}
+
+.logo {
+    font-family: 'Kodchasan', sans-serif;
+}
+.logo:hover{
+    text-decoration:underline;
+    cursor:pointer;
 }

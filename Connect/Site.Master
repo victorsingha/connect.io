@@ -39,10 +39,10 @@
         </asp:ScriptManager>--%>
 
         <%--AppBar--%> 
-        <nav class="navbar navbar-dark bg-dark mb-4">
+        <nav class="navbar navbar-dark bg-dark mb-3">
             <div class="container container-fluid">
                 <span class="navbar-brand mb-0 h1 fs-3">connect.io</span>
-                <a class="btn btn-outline-light" href="<%= Page.ResolveUrl("~/Pages/login.aspx") %>">about us</a>
+               <%-- <a class="btn btn-outline-light" href="<%= Page.ResolveUrl("~/Pages/login.aspx") %>">about us</a>--%>
             </div>
         </nav>
 
@@ -54,7 +54,7 @@
          
             <footer style="position:absolute;bottom:0px;width:100%;text-align:center;">
                 <hr />
-                <p>&copy; 2021 - connect.io</p>
+                <p style="font-weight:500">&copy; <%: DateTime.Now.Year %> - connect.io</p>
             </footer>
 
     </div>

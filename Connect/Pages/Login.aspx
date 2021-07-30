@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Login" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Connect.Pages.Login" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <form runat="server" class="d-lg-flex align-items-center justify-content-center">
+    <form runat="server" class="d-flex align-items-center justify-content-center">
         <div class="logincontainer">
             <div class="d-flex flex-column">
                 <asp:Label ID="emaillabel" runat="server" CssClass="form-label" Text="email"></asp:Label>

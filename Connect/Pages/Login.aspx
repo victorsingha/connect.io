@@ -17,7 +17,7 @@
                 <asp:RequiredFieldValidator ID="passwordrequiredvalidator" runat="server" ControlToValidate="password" ForeColor="#ff6600" ErrorMessage="password required"></asp:RequiredFieldValidator>
 
             <div class="d-flex flex-column justify-content-between">
-                <asp:Button ID="login" runat="server" Text="Login" CssClass="btn-lg btn-primary mb-4" />
+                <asp:Button ID="login" runat="server" Text="Login" CssClass="btn-lg btn-primary mb-4" OnClick="LoginBtnClick"  />
                <a href="Register.aspx">Create an account.</a>
             </div>
         </div>

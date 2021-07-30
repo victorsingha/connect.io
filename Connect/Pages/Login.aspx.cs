@@ -13,5 +13,9 @@ namespace Connect.Pages
         {
 
         }
+        protected void LoginBtnClick(object sender,EventArgs e)
+        {
+            passwordlabel.Text = "yoooo";
+        }
     }
 }

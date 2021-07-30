@@ -21,7 +21,8 @@ namespace Connect.Pages
             string _password = password.Text.ToString();
 
             bool result = userService.Login(_email, _password);
-            if(result) Response.Redirect("https://localhost:44323/Pages/Register.aspx");
+            if (result) Response.Redirect("Register.aspx");
+
 
         }
     }

@@ -55,5 +55,29 @@ namespace Connect.Services
                 throw e;
             }
         }
+
+        public bool Register(string username,string email,string password)
+        {
+            try
+            {
+                using (connection)
+                {
+                    string query = $"insert into Users (Username,Email,Password) values ('{username}','{email}','{password}')";
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    connection.Open();
+                    var result = cmd.ExecuteNonQuery();
+                    connection.Close();
+                    if (result != 0)
+                    {
+                        return true;
+                    }
+                    else return false;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

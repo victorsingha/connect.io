@@ -7,16 +7,25 @@
                 <asp:Label ID="emaillabel" runat="server" CssClass="form-label" Text="email"></asp:Label>
                 <asp:TextBox ID="email" runat="server" CssClass="form-control" placeholder="name@example.com"></asp:TextBox>
             </div>
-            <div>
-                <asp:RequiredFieldValidator ID="emailrequiredvalidator" runat="server" ControlToValidate="email" ForeColor="#ff6600" ErrorMessage="email required"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator CssClass="emailregex" ID="emailregexvalidation" runat="server" ControlToValidate="email" ErrorMessage="email is not valid" ForeColor="#ff6600" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+            <div style="height: 4px;" class="mb-3">
+                <div style="position: absolute;">
+                    <asp:RequiredFieldValidator ID="emailrequiredvalidator" runat="server" ControlToValidate="email" ForeColor="#ff6600" ErrorMessage="email required"></asp:RequiredFieldValidator>
+                </div>
+                <div style="position: absolute;">
+                    <asp:RegularExpressionValidator CssClass="emailregex" ID="emailregexvalidation" runat="server" ControlToValidate="email" ErrorMessage="email is not valid" ForeColor="#ff6600" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                </div>
             </div>
+
 
             <div class="d-flex flex-column">
                 <asp:Label ID="passwordlabel" runat="server" Text="password" CssClass="form-label"></asp:Label>
                 <asp:TextBox ID="password" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
             </div>
-            <asp:RequiredFieldValidator ID="passwordrequiredvalidator" runat="server" ControlToValidate="password" ForeColor="#ff6600" ErrorMessage="password required"></asp:RequiredFieldValidator>
+            <div style="height: 4px;" class="mb-4">
+                <div style="position: absolute;">
+                    <asp:RequiredFieldValidator ID="passwordrequiredvalidator" runat="server" ControlToValidate="password" ForeColor="#ff6600" ErrorMessage="password required"></asp:RequiredFieldValidator>
+                </div>
+            </div>
 
             <div class="d-flex flex-column justify-content-between">
                 <asp:Button ID="login" runat="server" Text="Login" CssClass="btn btn-primary mb-4" OnClick="LoginBtnClick" />

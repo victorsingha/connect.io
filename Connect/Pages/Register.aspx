@@ -4,13 +4,13 @@
     <form runat="server" class="d-flex align-items-center justify-content-center">
         <div class="card p-3 logincontainer">
             <div class="d-flex flex-column">
-                <asp:Label ID="usernamelabel" runat="server" CssClass="form-label" Text="username"></asp:Label>
+                <asp:Label ID="usernamelabel" runat="server" CssClass="form-label" Text="Username"></asp:Label>
                 <asp:TextBox ID="username" runat="server" CssClass="form-control" placeholder="ex:johnathan"></asp:TextBox>
             </div>
             <asp:RequiredFieldValidator ID="usernamerequiredvalidatior" runat="server" ControlToValidate="username" ForeColor="#ff6600" ErrorMessage="username required"></asp:RequiredFieldValidator>
 
             <div class="d-flex flex-column">
-                <asp:Label ID="emaillabel" runat="server" CssClass="form-label" Text="email"></asp:Label>
+                <asp:Label ID="emaillabel" runat="server" CssClass="form-label" Text="Email"></asp:Label>
                 <asp:TextBox ID="email" runat="server" CssClass="form-control" placeholder="name@example.com"></asp:TextBox>
             </div>
             <div style="height: 4px;" class="mb-3">
@@ -22,13 +22,13 @@
                 </div>
             </div>
             <div class="d-flex flex-column">
-                <asp:Label ID="passwordlabel" runat="server" Text="password" CssClass="form-label"></asp:Label>
+                <asp:Label ID="passwordlabel" runat="server" Text="Password" CssClass="form-label"></asp:Label>
                 <asp:TextBox ID="password" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
             </div>
             <asp:RequiredFieldValidator ID="passwordrequiredvalidator" runat="server" ControlToValidate="password" ForeColor="#ff6600" ErrorMessage="password required"></asp:RequiredFieldValidator>
 
             <div class="d-flex flex-column">
-                <asp:Label ID="confirmpasswordlabel" runat="server" Text="confirm password" CssClass="form-label"></asp:Label>
+                <asp:Label ID="confirmpasswordlabel" runat="server" Text="Confirm Password" CssClass="form-label"></asp:Label>
                 <asp:TextBox ID="confirmpassword" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
             </div>
             <asp:RequiredFieldValidator ID="confirmpasswordrequiredvalidator" runat="server" ControlToValidate="confirmpassword" ForeColor="#ff6600" ErrorMessage="confirm password required"></asp:RequiredFieldValidator>

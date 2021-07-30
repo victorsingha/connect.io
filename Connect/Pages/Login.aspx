@@ -1,10 +1,10 @@
 ﻿<%@ Page Title="Login" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Connect.Pages.Login" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <form runat="server" class="d-flex align-items-center justify-content-center">
+    <form runat="server" class="d-flex align-items-center justify-content-center" style="height:400px">
         <div class="card p-3 logincontainer">
             <div class="d-flex flex-column">
-                <asp:Label ID="emaillabel" runat="server" CssClass="form-label" Text="email"></asp:Label>
+                <asp:Label ID="emaillabel" runat="server" CssClass="form-label" Text="Email"></asp:Label>
                 <asp:TextBox ID="email" runat="server" CssClass="form-control" placeholder="name@example.com"></asp:TextBox>
             </div>
             <div style="height: 4px;" class="mb-3">
@@ -18,7 +18,7 @@
 
 
             <div class="d-flex flex-column">
-                <asp:Label ID="passwordlabel" runat="server" Text="password" CssClass="form-label"></asp:Label>
+                <asp:Label ID="passwordlabel" runat="server" Text="Password" CssClass="form-label"></asp:Label>
                 <asp:TextBox ID="password" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
             </div>
             <div style="height: 4px;" class="mb-4">
@@ -33,4 +33,8 @@
             </div>
         </div>
     </form>
+    <div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300" style="position:absolute;bottom:0px;z-index:-5">
+            <path fill="#0099ff" fill-opacity="0.3" d="M0,224L60,229.3C120,235,240,245,360,240C480,235,600,213,720,176C840,139,960,85,1080,80C1200,75,1320,117,1380,138.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
 </asp:Content>

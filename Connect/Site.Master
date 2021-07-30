@@ -51,11 +51,11 @@
             </asp:ContentPlaceHolder>       
         </div>
 
-<%--          
-            <footer>
+         
+            <footer style="position:absolute;bottom:0px;width:100%;text-align:center;">
                 <hr />
-                <p>&copy; <%: DateTime.Now.Year %> - connect.io</p>
-            </footer>--%>
+                <p>&copy; 2021 - connect.io</p>
+            </footer>
 
     </div>
 </body>

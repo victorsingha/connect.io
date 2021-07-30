@@ -132,6 +132,15 @@ namespace Connect.Pages
         protected global::System.Web.UI.WebControls.RequiredFieldValidator confirmpasswordrequiredvalidator;
 
         /// <summary>
+        /// comparevalidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator comparevalidator;
+
+        /// <summary>
         /// register control.
         /// </summary>
         /// <remarks>

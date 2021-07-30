@@ -9,10 +9,10 @@
             </div>
             <div style="height: 4px;" class="mb-3">
                 <div style="position: absolute;">
-                    <asp:RequiredFieldValidator ID="emailrequiredvalidator" runat="server" ControlToValidate="email" ForeColor="#ff6600" ErrorMessage="email required"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="emailrequiredvalidator" runat="server" ControlToValidate="email" ForeColor="#ff6600" ErrorMessage="Email Required"></asp:RequiredFieldValidator>
                 </div>
                 <div style="position: absolute;">
-                    <asp:RegularExpressionValidator CssClass="emailregex" ID="emailregexvalidation" runat="server" ControlToValidate="email" ErrorMessage="email is not valid" ForeColor="#ff6600" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator CssClass="emailregex" ID="emailregexvalidation" runat="server" ControlToValidate="email" ErrorMessage="Email is not valid" ForeColor="#ff6600" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 </div>
             </div>
 
@@ -23,7 +23,7 @@
             </div>
             <div style="height: 4px;" class="mb-4">
                 <div style="position: absolute;">
-                    <asp:RequiredFieldValidator ID="passwordrequiredvalidator" runat="server" ControlToValidate="password" ForeColor="#ff6600" ErrorMessage="password required"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="passwordrequiredvalidator" runat="server" ControlToValidate="password" ForeColor="#ff6600" ErrorMessage="Password Required"></asp:RequiredFieldValidator>
                 </div>
             </div>
 

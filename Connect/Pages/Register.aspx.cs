@@ -13,5 +13,12 @@ namespace Connect.Pages
         {
 
         }
+        protected void RegisterBtnClick(object sender,EventArgs e)
+        {
+            string _username = username.Text.ToString();
+            string _email = email.Text.ToString();
+            string _password = password.Text.ToString();
+            string _confirmpass = confirmpassword.Text.ToString();
+        }
     }
 }

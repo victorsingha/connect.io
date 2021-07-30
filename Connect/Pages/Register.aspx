@@ -7,7 +7,7 @@
                 <asp:Label ID="usernamelabel" runat="server" CssClass="form-label" Text="Username"></asp:Label>
                 <asp:TextBox ID="username" runat="server" CssClass="form-control" placeholder="ex:johnathan"></asp:TextBox>
             </div>
-            <asp:RequiredFieldValidator ID="usernamerequiredvalidatior" runat="server" ControlToValidate="username" ForeColor="#ff6600" ErrorMessage="username required"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="usernamerequiredvalidatior" runat="server" ControlToValidate="username" ForeColor="#ff6600" ErrorMessage="Username Required"></asp:RequiredFieldValidator>
 
             <div class="d-flex flex-column">
                 <asp:Label ID="emaillabel" runat="server" CssClass="form-label" Text="Email"></asp:Label>
@@ -15,26 +15,35 @@
             </div>
             <div style="height: 4px;" class="mb-3">
                 <div style="position: absolute;">
-                    <asp:RequiredFieldValidator ID="emailrequiredvalidator" runat="server" ControlToValidate="email" ForeColor="#ff6600" ErrorMessage="email required"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="emailrequiredvalidator" runat="server" ControlToValidate="email" ForeColor="#ff6600" ErrorMessage="Email Required"></asp:RequiredFieldValidator>
                 </div>
                 <div style="position: absolute;">
-                    <asp:RegularExpressionValidator CssClass="emailregex" ID="emailregexvalidation" runat="server" ControlToValidate="email" ErrorMessage="email is not valid" ForeColor="#ff6600" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator CssClass="emailregex" ID="emailregexvalidation" runat="server" ControlToValidate="email" ErrorMessage="Email is not valid" ForeColor="#ff6600" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 </div>
             </div>
             <div class="d-flex flex-column">
                 <asp:Label ID="passwordlabel" runat="server" Text="Password" CssClass="form-label"></asp:Label>
                 <asp:TextBox ID="password" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
             </div>
-            <asp:RequiredFieldValidator ID="passwordrequiredvalidator" runat="server" ControlToValidate="password" ForeColor="#ff6600" ErrorMessage="password required"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="passwordrequiredvalidator" runat="server" ControlToValidate="password" ForeColor="#ff6600" ErrorMessage="Password Required"></asp:RequiredFieldValidator>
 
             <div class="d-flex flex-column">
                 <asp:Label ID="confirmpasswordlabel" runat="server" Text="Confirm Password" CssClass="form-label"></asp:Label>
                 <asp:TextBox ID="confirmpassword" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
             </div>
-            <asp:RequiredFieldValidator ID="confirmpasswordrequiredvalidator" runat="server" ControlToValidate="confirmpassword" ForeColor="#ff6600" ErrorMessage="confirm password required"></asp:RequiredFieldValidator>
+            <div style="height: 4px;" class="mb-3">
+                <div style="position: absolute;">
+                    <asp:RequiredFieldValidator ID="confirmpasswordrequiredvalidator" runat="server" ControlToValidate="confirmpassword" ForeColor="#ff6600" ErrorMessage="Confirm Password Required"></asp:RequiredFieldValidator>
+
+                </div>
+                <div style="position: absolute;">
+                    <asp:CompareValidator ID="comparevalidator" ControlToValidate="confirmpassword" ControlToCompare="password" ForeColor="#ff6600" runat="server" ErrorMessage="Password Must Match"></asp:CompareValidator>
+
+                </div>
+            </div>
 
             <div class="d-flex flex-column justify-content-between">
-                <asp:Button ID="register" runat="server" Text="Register" CssClass="btn btn-outline-primary mb-2 mt-1" />
+                <asp:Button ID="register" runat="server" Text="Register" CssClass="btn btn-outline-primary mb-2 mt-2" OnClick="RegisterBtnClick" />
                 <a href="Login.aspx">Already have an Account.</a>
             </div>
         </div>

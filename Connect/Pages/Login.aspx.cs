@@ -20,8 +20,17 @@ namespace Connect.Pages
             string _email =  email.Text.ToString();
             string _password = password.Text.ToString();
 
+            string alert = "<div class='alert alert-danger mb-0' role='alert'>Wrong Credentials!</div>";
+
             bool result = userService.Login(_email, _password);
-            if (result) Response.Redirect("Register.aspx");
+            if (result) 
+            {         
+                Response.Redirect("Register.aspx");
+            }
+            else
+            {
+                Response.Write(alert);
+            }
 
 
         }

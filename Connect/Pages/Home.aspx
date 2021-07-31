@@ -3,11 +3,24 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
         <div class="row">
-            <div class="col-md-9 card" style="height: 480px">
-                <h1>chat</h1>
-            </div>          
+            <form runat="server" class="col-md-9 d-flex card flex-column-reverse" style="height: 480px">
+                <div class="d-flex mb-3 gap-3">
+                    <asp:TextBox ID="chat" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:Button ID="send" runat="server" Text="Send" CssClass="btn btn-outline-primary" OnClick="SendBtnClick" />
+                </div>
+                <asp:RequiredFieldValidator ID="chatrequired" runat="server" ControlToValidate="chat" ForeColor="#66ccff" ErrorMessage="Empty Chat"></asp:RequiredFieldValidator>
+
+            </form>
             <div class="col-md-3 d-none d-md-block card">
-                <h2>users</h2>
+                <asp:Repeater ID="UsersRepeater" runat="server">
+                    <HeaderTemplate>
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <p><%#Eval("Username") %></p>
+                        <p><%#Eval("Email") %></p>
+                    </ItemTemplate>
+                </asp:Repeater>
+
             </div>
         </div>
     </div>

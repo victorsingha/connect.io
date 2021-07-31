@@ -3,22 +3,24 @@
 
 .logincontainer {
     width: 300px;
-    height:max-content;
+    height: max-content;
 }
 
 .logo {
     font-family: 'Kodchasan', sans-serif;
 }
-.logo:hover{
+
+    .logo:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+.afterloginnav > a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Kodchasan', sans-serif;
+}
+.afterloginnav > a:hover{
     text-decoration:underline;
-    cursor:pointer;
 }
 
-.red{
-    color:red;
-}
-.usersgrid{
-    background-color:transparent;
-    border-collapse:collapse;
-    border-spacing:0;
-}

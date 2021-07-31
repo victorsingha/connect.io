@@ -16,7 +16,10 @@ namespace Connect.Pages
         SqlConnection connection = new SqlConnection(connectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetAllUsers();
+            if (!IsPostBack)
+            {
+                GetAllUsers();
+            }
         }
         protected void GetAllUsers()
         {
@@ -25,7 +28,7 @@ namespace Connect.Pages
                 using (connection)
                 {
                     connection.Open();
-                    string query = $"SELECT * FROM Users";
+                    string query = $"SELECT Users.Username, Users.Email FROM Users";
                     SqlCommand cmd = new SqlCommand(query, connection);
                     // cmd = new SqlCommand("GetAllBookList", connection);
                     //cmd.CommandType = CommandType.StoredProcedure;

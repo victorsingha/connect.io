@@ -25,7 +25,7 @@ namespace Connect.Pages
             bool result = userService.Login(_email, _password);
             if (result) 
             {         
-                Response.Redirect("Register.aspx");
+                Response.Redirect("Home.aspx");
             }
             else
             {

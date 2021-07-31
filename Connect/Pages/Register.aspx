@@ -44,7 +44,7 @@
 
             <div class="d-flex flex-column justify-content-between">
                 <asp:Button ID="register" runat="server" Text="Register" CssClass="btn btn-outline-primary mb-2 mt-2" OnClick="RegisterBtnClick" />
-                <a href="Login.aspx">Already have an Account.</a>
+                <a href="./Login.aspx">Already have an Account.</a>
             </div>
         </div>
     </form>

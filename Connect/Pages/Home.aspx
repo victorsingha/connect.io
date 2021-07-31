@@ -3,10 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
         <div class="row">
-            <div class="col-md-8 card" style="height: 480px">
+            <div class="col-md-9 card" style="height: 480px">
                 <h1>chat</h1>
-            </div>
-            <div class="col-1"></div>
+            </div>          
             <div class="col-md-3 d-none d-md-block card">
                 <h2>users</h2>
             </div>

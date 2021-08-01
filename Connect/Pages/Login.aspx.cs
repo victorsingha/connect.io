@@ -1,4 +1,5 @@
-﻿using Connect.Services;
+﻿using Connect.Models;
+using Connect.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,8 +23,8 @@ namespace Connect.Pages
 
             string alert = "<div class='alert alert-danger mb-0' role='alert'>Wrong Credentials!</div>";
 
-            bool result = userService.Login(_email, _password);
-            if (result) 
+            LoginResponse response = userService.Login(_email, _password);
+            if (response != null) 
             {         
                 Response.Redirect("./Home.aspx");
             }

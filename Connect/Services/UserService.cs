@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Connect.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -13,7 +14,7 @@ namespace Connect.Services
         static string connectionString = ConfigurationManager.ConnectionStrings["ConnectConnectionString"].ConnectionString;
         SqlConnection connection = new SqlConnection(connectionString);
 
-        public bool Login(string email,string password)
+        public LoginResponse Login(string email,string password)
         {
             try
             {
@@ -34,21 +35,22 @@ namespace Connect.Services
                     {
                         if (reader.HasRows)
                         {
-                            int _userid = (Int32)reader["UserId"];
-                            string _username = (string)reader["Username"]; ;
-                            string _email = (string)reader["Email"];
+                            LoginResponse model = new LoginResponse();
+                            model.UserId = (Int32)reader["UserId"];
+                            model.Username = (string)reader["Username"]; ;
+                            model.Email = (string)reader["Email"];
 
-                            return true;
+                            return model;
 
                         }
                         else
                         {
-                            return false;
+                            return null;
                         }
                     }
 
                 }
-                return false;
+                return null;
             }
             catch (Exception e)
             {

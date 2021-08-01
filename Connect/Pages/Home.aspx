@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div style="width: 100vw; position: absolute; top: 15px;">
         <nav class="afterloginnav container d-flex flex-row-reverse gap-3">
-            <a href="Users.aspx" class="fs-5">logout</a>
+            <a href="./Login.aspx" class="fs-5">logout</a>
             <a href="./Users.aspx" class="fs-5">users</a>
         </nav>
     </div>

@@ -11,12 +11,25 @@
 
     <div class="container">
         <div class="row">
-            <form runat="server" class="col-md-9 d-flex flex-column-reverse" style="height: 480px">
+            <form runat="server" class="col-md-9 d-flex flex-column" style="height: 480px">
+                <div class="d-flex gap-3">
+                    <asp:Label ID="Port1Label" runat="server" Text="Port1" CssClass="form-label"></asp:Label>
+                    <asp:TextBox ID="Port1" runat="server" CssClass="form-control"></asp:TextBox>
+
+                    <asp:Label ID="Port2Label" runat="server" Text="Port2" CssClass="form-label"></asp:Label>
+                    <asp:TextBox ID="Port2" runat="server" CssClass="form-control"></asp:TextBox>
+
+                    <asp:Button ID="Connect" runat="server" Text="Connect" CssClass="btn btn-outline-primary px-5" />
+                </div>
+                <div class="chatwindow" style="height: 500px;background-color: beige;margin-top: 12px;border-radius: 4px;">
+                    <h1>chatwindow</h1>
+                </div>
+                <asp:RequiredFieldValidator ID="chatrequired" runat="server" ControlToValidate="chat" ForeColor="#66ccff" ErrorMessage="Empty Chat"></asp:RequiredFieldValidator>
+
                 <div class="d-flex gap-3">
                     <asp:TextBox ID="chat" runat="server" CssClass="form-control"></asp:TextBox>
                     <asp:Button ID="send" runat="server" Text="Send" CssClass="btn btn-outline-primary px-5" OnClick="SendBtnClick" />
                 </div>
-                <asp:RequiredFieldValidator ID="chatrequired" runat="server" ControlToValidate="chat" ForeColor="#66ccff" ErrorMessage="Empty Chat"></asp:RequiredFieldValidator>
 
             </form>
             <div class="col-md-3 d-none d-md-block card pt-2">

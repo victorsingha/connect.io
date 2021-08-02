@@ -25,8 +25,11 @@ namespace Connect.Pages
 
             LoginResponse response = userService.Login(_email, _password);
             if (response != null) 
-            {         
-                Response.Redirect("./Home.aspx");
+            {
+                Session["UserId"] = response.UserId;
+                Session["Username"] = response.Username;
+                Session["Email"] = response.Email;
+                Response.Redirect("Home.aspx");
             }
             else
             {

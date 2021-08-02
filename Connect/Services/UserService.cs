@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -20,13 +21,13 @@ namespace Connect.Services
             {
                 using (connection)
                 {
-                    string query = $"SELECT * FROM Users WHERE Email = '{email}' and Password = '{password}'";
-                    SqlCommand cmd = new SqlCommand(query, connection);
-                    //SqlCommand cmd = new SqlCommand("Login", connection);
-                    //cmd.CommandType = CommandType.StoredProcedure;
+                    //string query = $"SELECT * FROM Users WHERE Email = '{email}' and Password = '{password}'";
+                    //SqlCommand cmd = new SqlCommand(query, connection);
+                    SqlCommand cmd = new SqlCommand("Login", connection);
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                    //cmd.Parameters.Add("@Email", SqlDbType.VarChar).Value = model.Email;
-                    //cmd.Parameters.Add("@Password", SqlDbType.VarChar).Value = model.Password;
+                    cmd.Parameters.Add("@Email", SqlDbType.VarChar).Value = email;
+                    cmd.Parameters.Add("@Password", SqlDbType.VarChar).Value = password;
 
                     connection.Open();
                     SqlDataReader reader = cmd.ExecuteReader();

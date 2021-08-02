@@ -20,11 +20,15 @@ namespace Connect.Pages
             string _username = username.Text.ToString();
             string _email = email.Text.ToString();
             string _password = password.Text.ToString();
-
+            //string alert = "<div class='alert alert-danger mb-0' role='alert'>Email Already Registered!</div>";
             bool result = userService.Register(_username, _email, _password);
             if (result)
             {
                 Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                //Response.Write(alert);
             }
         }
     }

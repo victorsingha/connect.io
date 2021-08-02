@@ -65,16 +65,26 @@ namespace Connect.Services
             {
                 using (connection)
                 {
-                    string query = $"insert into Users (Username,Email,Password) values ('{username}','{email}','{password}')";
-                    SqlCommand cmd = new SqlCommand(query, connection);
+                    //string query = $"insert into Users (Username,Email,Password) values ('{username}','{email}','{password}')";
+                    //SqlCommand cmd = new SqlCommand(query, connection);
+                    SqlCommand cmd = new SqlCommand("Register", connection);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@Username", SqlDbType.VarChar).Value = username;
+                    cmd.Parameters.Add("@Email", SqlDbType.VarChar).Value = email;
+                    cmd.Parameters.Add("@Password", SqlDbType.VarChar).Value = password;
+
+                    SqlParameter returnParameter = cmd.Parameters.Add("Exists", SqlDbType.Int);
+                    returnParameter.Direction = ParameterDirection.ReturnValue;
+
                     connection.Open();
                     var result = cmd.ExecuteNonQuery();
+                    int exists = (int)returnParameter.Value;
                     connection.Close();
-                    if (result != 0)
+                    if (exists == 0)
                     {
                         return true;
                     }
-                    else return false;
+                    return false;
                 }
             }
             catch (Exception e)

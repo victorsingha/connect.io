@@ -12,21 +12,29 @@
     <div class="container">
         <div class="row">
             <form class="col-md-9 d-flex flex-column" style="height: 480px">
+                <div class="d-flex gap-3 mb-3">
+                    <p class="form-label">IP1</p>
+                    <input class="form-control" />
+
+                    <p class="form-label">IP2</p>
+                    <input class="form-control" />
+                </div>
+
                 <div class="d-flex gap-3">
                     <p class="form-label">Port1</p>
                     <input class="form-control" />
 
-                    <p class="form-label">Port1</p>
+                    <p class="form-label">Port2</p>
                     <input class="form-control" />
-                    <button  Class="btn btn-outline-primary px-5">Connect</button>
+                    <button class="btn btn-outline-primary px-5">Connect</button>
                 </div>
                 <div class="chatwindow" style="height: 500px; background-color: beige; margin: 12px 0px; border-radius: 4px;">
                     <h1>chatwindow</h1>
-                  
+
                 </div>
                 <div class="d-flex gap-3">
-                 <input class="form-control" />
-                      <button  Class="btn btn-outline-primary px-5">Send</button>
+                    <input class="form-control" />
+                    <button class="btn btn-outline-primary px-5">Send</button>
                 </div>
             </form>
             <div class="col-md-3 d-none d-md-block card pt-2">

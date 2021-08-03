@@ -84,7 +84,7 @@ namespace Connect.Pages
 
                 //Adding Msg To List
                 //MessageList.Items.Add("Remote: " + receivedMessage);
-                ListMsg.Items.Add("You: " + receivedMessage);
+                ListMsg.Items.Add("Remote: " + receivedMessage);
 
                 // starts to listen the socket again
                 buffer = new byte[1500];
@@ -109,7 +109,7 @@ namespace Connect.Pages
             sck.Send(sendingMessage);
 
             // add to listbox
-            ListMsg.Items.Add("Me: " + message.Text);
+            ListMsg.Items.Add("Local: " + message.Text);
             message.Text = "";
         }
         protected void GetAllUsers()

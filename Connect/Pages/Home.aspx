@@ -11,7 +11,7 @@
 
     <div class="container">
         <div class="row">
-            <form class="col-md-9 d-flex flex-column" style="height: 480px">
+            <form id="form" class="col-md-9 d-flex flex-column" style="height: 480px">
                 <div class="d-flex gap-3 mb-3">
                     <p class="form-label">IP1</p>
                     <input class="form-control" />
@@ -26,7 +26,7 @@
 
                     <p class="form-label">Port2</p>
                     <input class="form-control" />
-                    <button class="btn btn-outline-primary px-5">Connect</button>
+                    <button class="btn btn-outline-primary px-5" onclick="connectBtn()">Connect</button>
                 </div>
                 <div class="chatwindow" style="height: 500px; background-color: beige; margin: 12px 0px; border-radius: 4px;">
                     <h1>chatwindow</h1>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="d-flex gap-3">
                     <input class="form-control" />
-                    <button class="btn btn-outline-primary px-5">Send</button>
+                    <button class="btn btn-outline-primary px-5" onclick="sendBtn()">Send</button>
                 </div>
             </form>
             <div class="col-md-3 d-none d-md-block card pt-2">
@@ -49,5 +49,17 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $("#form").submit(function (e) {
+            e.preventDefault();
+        });
+        function connectBtn() {
+            console.log("connect")
+        }
+        function sendBtn() {
+            console.log("send")
+        }
+    </script>
 
 </asp:Content>

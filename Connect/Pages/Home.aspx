@@ -19,15 +19,14 @@
                     <asp:Label ID="Port2Label" runat="server" Text="Port2" CssClass="form-label"></asp:Label>
                     <asp:TextBox ID="Port2" runat="server" CssClass="form-control"></asp:TextBox>
 
-                    <asp:Button ID="Connect" runat="server" Text="Connect" CssClass="btn btn-outline-primary px-5" />
+                    <asp:Button ID="Connect" runat="server" Text="Connect" CssClass="btn btn-outline-primary px-5" OnClick="Connect_Click" />
                 </div>
                 <div class="chatwindow" style="height: 500px;background-color: beige;margin-top: 12px;border-radius: 4px;">
                     <h1>chatwindow</h1>
+                    <asp:ListBox ID="ListMsg" runat="server"></asp:ListBox>
                 </div>
-                <asp:RequiredFieldValidator ID="chatrequired" runat="server" ControlToValidate="chat" ForeColor="#66ccff" ErrorMessage="Empty Chat"></asp:RequiredFieldValidator>
-
                 <div class="d-flex gap-3">
-                    <asp:TextBox ID="chat" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="message" runat="server" CssClass="form-control"></asp:TextBox>
                     <asp:Button ID="send" runat="server" Text="Send" CssClass="btn btn-outline-primary px-5" OnClick="SendBtnClick" />
                 </div>
 

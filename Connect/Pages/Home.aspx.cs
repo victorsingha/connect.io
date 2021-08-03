@@ -24,7 +24,6 @@ namespace Connect.Pages
         string localIp, remoteIp;
         protected void Page_Load(object sender, EventArgs e)
         {
-            ListMsg.Items.Add("Welcome");
 
             if (!IsPostBack)
             {
@@ -32,12 +31,12 @@ namespace Connect.Pages
             }
 
             // set up socket
-            sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-            sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+            //sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+            //sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
 
             // set up IP
-            localIp = GetLocalIP();
-            remoteIp = GetLocalIP();
+            //localIp = GetLocalIP();
+            //remoteIp = GetLocalIP();
             
         }
 
@@ -55,21 +54,21 @@ namespace Connect.Pages
             return "127.0.0.1";
         }
 
-        protected void Connect_Click(object sender, EventArgs e)
-        {
-            // binding Socket
-            epLocal = new IPEndPoint(IPAddress.Parse(localIp), Convert.ToInt32(Port1.Text));
-            sck.Bind(epLocal);
+        //protected void Connect_Click(object sender, EventArgs e)
+        //{
+        //    // binding Socket
+        //    epLocal = new IPEndPoint(IPAddress.Parse(localIp), Convert.ToInt32(Port1.Text));
+        //    sck.Bind(epLocal);
 
-            // connect to remote IP and port
-            epRemote = new IPEndPoint(IPAddress.Parse(remoteIp), Convert.ToInt32(Port2.Text));
-            sck.Connect(epRemote);
+        //    // connect to remote IP and port
+        //    epRemote = new IPEndPoint(IPAddress.Parse(remoteIp), Convert.ToInt32(Port2.Text));
+        //    sck.Connect(epRemote);
 
-            // starts to listen to an specific port
-            buffer = new byte[1500];
-            sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new
-            AsyncCallback(MessageCallBack), buffer);
-        }
+        //    // starts to listen to an specific port
+        //    buffer = new byte[1500];
+        //    sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new
+        //    AsyncCallback(MessageCallBack), buffer);
+        //}
 
         private void MessageCallBack(IAsyncResult aResult)
         {
@@ -84,7 +83,7 @@ namespace Connect.Pages
 
                 //Adding Msg To List
                 //MessageList.Items.Add("Remote: " + receivedMessage);
-                ListMsg.Items.Add("Remote: " + receivedMessage);
+                //ListMsg.Items.Add("Remote: " + receivedMessage);
 
                 // starts to listen the socket again
                 buffer = new byte[1500];
@@ -98,20 +97,20 @@ namespace Connect.Pages
 
         }
 
-        protected void SendBtnClick(object sender,EventArgs e)
-        {
-            // Convert string msg to byte
-            ASCIIEncoding aEncoding = new ASCIIEncoding();
-            byte[] sendingMessage = new byte[1500];
-            sendingMessage = aEncoding.GetBytes(message.Text);
+        //protected void SendBtnClick(object sender,EventArgs e)
+        //{
+        //    // Convert string msg to byte
+        //    ASCIIEncoding aEncoding = new ASCIIEncoding();
+        //    byte[] sendingMessage = new byte[1500];
+        //    sendingMessage = aEncoding.GetBytes(message.Text);
 
-            // Sending Encoded Message
-            sck.Send(sendingMessage);
+        //    // Sending Encoded Message
+        //    sck.Send(sendingMessage);
 
-            // add to listbox
-            ListMsg.Items.Add("Local: " + message.Text);
-            message.Text = "";
-        }
+        //    // add to listbox
+        //    ListMsg.Items.Add("Local: " + message.Text);
+        //    message.Text = "";
+        //}
         protected void GetAllUsers()
         {
             try

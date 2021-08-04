@@ -14,18 +14,18 @@
             <form id="form" class="col-md-9 d-flex flex-column" style="height: 480px">
                 <div class="d-flex gap-3 mb-3">
                     <p class="form-label">IP1</p>
-                    <input class="form-control" />
+                    <input class="form-control" id="IP1" />
 
                     <p class="form-label">IP2</p>
-                    <input class="form-control" />
+                    <input class="form-control" id="IP2" />
                 </div>
 
                 <div class="d-flex gap-3">
                     <p class="form-label">Port1</p>
-                    <input class="form-control" />
+                    <input class="form-control" id="Port1" />
 
                     <p class="form-label">Port2</p>
-                    <input class="form-control" />
+                    <input class="form-control" id="Port2" />
                     <button class="btn btn-outline-primary px-5" onclick="connectBtn()">Connect</button>
                 </div>
                 <div class="chatwindow" style="height: 500px; background-color: beige; margin: 12px 0px; border-radius: 4px;">
@@ -33,7 +33,7 @@
 
                 </div>
                 <div class="d-flex gap-3">
-                    <input class="form-control" />
+                    <input id="MessageId" class="form-control" />
                     <button class="btn btn-outline-primary px-5" onclick="sendBtn()">Send</button>
                 </div>
             </form>
@@ -55,10 +55,17 @@
             e.preventDefault();
         });
         function connectBtn() {
-            console.log("connect")
+            //console.log("connect")
+            var IP1 = document.getElementById("IP1").value;
+            var IP2 = document.getElementById("IP2").value;
+            var Port1 = document.getElementById("Port1").value;
+            var Port2 = document.getElementById("Port2").value;
+            console.log(IP1 + IP2 + Port1 + Port2);
         }
         function sendBtn() {
-            console.log("send")
+            //console.log("send")
+            var msg = document.getElementById("MessageId").value;
+            console.log(msg);
         }
     </script>
 

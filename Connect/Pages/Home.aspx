@@ -60,7 +60,26 @@
             var IP2 = document.getElementById("IP2").value;
             var Port1 = document.getElementById("Port1").value;
             var Port2 = document.getElementById("Port2").value;
-            console.log(IP1 + IP2 + Port1 + Port2);
+            
+            var jsondata = new FormData();
+            jsondata.append("IP1", IP1);
+            jsondata.append("IP2", IP2);
+            jsondata.append("Port1", Port1);
+            jsondata.append("Port2", Port2);
+
+            $.ajax({
+                url: "https://localhost:44323/Chat/Connect",
+                method: "POST",
+                data: jsondata,
+                contentType: false,
+                cache: false,
+                processData: false,
+                dataType: 'json',
+                success: function (data) { console.log(JSON.stringify(data)); },
+                error: function (errMsg) {
+                    console.log(JSON.stringify(errMsg));
+                }
+            });
         }
         function sendBtn() {
             //console.log("send")

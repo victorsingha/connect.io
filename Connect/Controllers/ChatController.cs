@@ -8,10 +8,34 @@ namespace Connect.Controllers
 {
     public class ChatController : Controller
     {
-        // GET: Chat
-        public ActionResult Index()
+        // Chat/{{ActionName}}
+
+        // API for Connect Button
+        [HttpPost]
+        public ActionResult Connect(string IP1,string IP2,string Port1,string Port2)
         {
-            return Content("Hello API");
+            try 
+            {
+                return Json(new { success = true, responseText = "Connected." }, JsonRequestBehavior.AllowGet);
+            }
+            catch(Exception e)
+            {
+                return Json(new { success = false, responseText = e.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        //API for Send Button
+        [HttpPost]
+        public ActionResult Send(string message)
+        {
+            try
+            {
+                return Json(new { success = true, responseText = message }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, responseText = e.Message }, JsonRequestBehavior.AllowGet);
+            }
         }
     }
 }

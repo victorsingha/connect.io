@@ -54,6 +54,7 @@
         $("#form").submit(function (e) {
             e.preventDefault();
         });
+
         function connectBtn() {
             //console.log("connect")
             var IP1 = document.getElementById("IP1").value;

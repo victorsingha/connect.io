@@ -74,7 +74,7 @@
                 contentType: false,
                 cache: false,
                 processData: false,
-                dataType: 'json',
+                //dataType: 'json',
                 success: function (data) { console.log(JSON.stringify(data)); },
                 error: function (errMsg) {
                     console.log(JSON.stringify(errMsg));
@@ -84,7 +84,22 @@
         function sendBtn() {
             //console.log("send")
             var msg = document.getElementById("MessageId").value;
-            console.log(msg);
+            var jsondata = new FormData();
+            jsondata.append("message", msg);
+
+            $.ajax({
+                url: "https://localhost:44323/Chat/Send",
+                method: "POST",
+                data: jsondata,
+                contentType: false,
+                cache: false,
+                processData: false,
+                //dataType: 'json',
+                success: function (data) { console.log(JSON.stringify(data)); },
+                error: function (errMsg) {
+                    console.log(JSON.stringify(errMsg));
+                }
+            });
         }
     </script>
 

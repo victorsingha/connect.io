@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="Chat" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="Connect.Pages.Home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div style="width: 100vw; position: absolute; top: 15px;">
-        <nav class="afterloginnav container d-flex flex-row-reverse gap-3">
-            <a href="./Login.aspx" class="fs-5">logout</a>
-            <a href="./Users.aspx" class="fs-5">users</a>
-        </nav>
+    <div style="width: 100vw; position: absolute; top: 6px;">
+        <form runat="server" class="afterloginnav container d-flex flex-row-reverse gap-3">
+            <asp:Button ID="LogoutBtn" runat="server" Text="logout" CssClass="btn btn-outline-light fs-5" OnClick="LogoutBtn_Click"/>
+            <a href="./Users.aspx" class="fs-5 mt-2">users</a>
+        </form>
     </div>
 
 

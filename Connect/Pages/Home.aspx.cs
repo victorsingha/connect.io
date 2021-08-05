@@ -18,28 +18,27 @@ namespace Connect.Pages
         static string connectionString = ConfigurationManager.ConnectionStrings["ConnectConnectionString"].ConnectionString;
         SqlConnection connection = new SqlConnection(connectionString);
 
+        string UserName;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 //GetAllUsers();
             }
+            if (Session["Username"] != null)
+            {
+                UserName = Session["Username"].ToString();
+            }
+            else
+            {
+                //Response.Redirect("Login.aspx");
+            }
         }
 
-        //protected string GetLocalIP()
-        //{
-        //    IPHostEntry host;
-        //    host = Dns.GetHostEntry(Dns.GetHostName());
-        //    foreach (IPAddress ip in host.AddressList)
-        //    {
-        //        if (ip.AddressFamily == AddressFamily.InterNetwork)
-        //        {
-        //            return ip.ToString();
-        //        }
-        //    }
-        //    return "127.0.0.1";
-        //}
-      
+     
+
+
         protected void GetAllUsers()
         {
             try
@@ -70,6 +69,13 @@ namespace Connect.Pages
             {
                 throw e;
             }
+        }
+
+        protected void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("Login.aspx");
         }
     }
 }

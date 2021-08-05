@@ -24,6 +24,15 @@ namespace Connect.Pages
         protected global::System.Web.UI.WebControls.Label IP1Label;
 
         /// <summary>
+        /// LocalIP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox LocalIP;
+
+        /// <summary>
         /// IP2Label control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace Connect.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label IP2Label;
+
+        /// <summary>
+        /// RemoteIP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox RemoteIP;
 
         /// <summary>
         /// Port1Label control.

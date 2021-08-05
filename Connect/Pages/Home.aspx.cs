@@ -21,12 +21,13 @@ namespace Connect.Pages
         Socket sck;
         EndPoint epLocal, epRemote;
         byte[] buffer;
-        string localIp, remoteIp;
+        //string localIp, remoteIp;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                GetAllUsers();
+                //GetAllUsers();
+              
             }
 
             if(Session["socket"] != null)
@@ -35,15 +36,18 @@ namespace Connect.Pages
             }
             else
             {
-                //ListMsg.Items.Add("Welcome");
+                ListMsg.Items.Add("Welcome");
 
                 // set up socket
                 sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                 sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
 
                 // set up IP
-                localIp = GetLocalIP();
-                remoteIp = GetLocalIP();
+                //localIp = GetLocalIP();
+                //remoteIp = GetLocalIP();
+
+                LocalIP.Text = GetLocalIP();
+                RemoteIP.Text = GetLocalIP();
             }
 
            
@@ -67,11 +71,11 @@ namespace Connect.Pages
         protected void Connect_Click(object sender, EventArgs e)
         {
             // binding Socket
-            epLocal = new IPEndPoint(IPAddress.Parse(localIp), Convert.ToInt32(Port1.Text));
+            epLocal = new IPEndPoint(IPAddress.Parse(LocalIP.Text), Convert.ToInt32(Port1.Text));
             sck.Bind(epLocal);
 
             // connect to remote IP and port
-            epRemote = new IPEndPoint(IPAddress.Parse(remoteIp), Convert.ToInt32(Port2.Text));
+            epRemote = new IPEndPoint(IPAddress.Parse(RemoteIP.Text), Convert.ToInt32(Port2.Text));
             sck.Connect(epRemote);
 
             // starts to listen to an specific port
@@ -87,6 +91,8 @@ namespace Connect.Pages
         {
             try
             {
+                //int size = sck.EndReceiveFrom(aResult, ref epRemote);
+
                 byte[] receivedData = new byte[1500];
                 receivedData = (byte[])aResult.AsyncState;
 

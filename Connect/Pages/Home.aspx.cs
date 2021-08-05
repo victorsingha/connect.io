@@ -24,20 +24,30 @@ namespace Connect.Pages
         string localIp, remoteIp;
         protected void Page_Load(object sender, EventArgs e)
         {
-            ListMsg.Items.Add("Welcome");
 
             if (!IsPostBack)
             {
                 GetAllUsers();
             }
 
-            // set up socket
-            sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-            sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+            if(Session["socket"] != null)
+            {
+                sck = (Socket)Session["socket"];
+            }
+            else
+            {
+                //ListMsg.Items.Add("Welcome");
 
-            // set up IP
-            localIp = GetLocalIP();
-            remoteIp = GetLocalIP();
+                // set up socket
+                sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+                sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+
+                // set up IP
+                localIp = GetLocalIP();
+                remoteIp = GetLocalIP();
+            }
+
+           
             
         }
 
@@ -69,6 +79,9 @@ namespace Connect.Pages
             buffer = new byte[1500];
             sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new
             AsyncCallback(MessageCallBack), buffer);
+
+            // save socket in Session
+            Session["socket"] = sck;
         }
 
         private void MessageCallBack(IAsyncResult aResult)

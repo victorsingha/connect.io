@@ -57,10 +57,10 @@ namespace Connect.Controllers
 
                 //// add to listbox
                 //MsgList.Add("Local: " + message);
+                List<string> msgList = new List<string>();
+                msgList = socketService.Send(message);
 
-                socketService.Send(message);
-
-                return Json(new { success = true, responseText = message }, JsonRequestBehavior.AllowGet);
+                return Json(new { success = true, responseText = msgList }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception e)
             {

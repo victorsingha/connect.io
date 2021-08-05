@@ -89,7 +89,7 @@ namespace Connect.Services
             return "127.0.0.1";
         }
 
-        public void Send(string message)
+        public List<string> Send(string message)
         {
             Socket sck = (Socket)context.Session["socket"];
 
@@ -103,6 +103,7 @@ namespace Connect.Services
 
             // add to listbox
             MsgList.Add("Local: " + message);
+            return MsgList;
         }
     }
 }

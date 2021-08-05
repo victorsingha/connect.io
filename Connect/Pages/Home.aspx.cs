@@ -33,6 +33,8 @@ namespace Connect.Pages
             if(Session["socket"] != null)
             {
                 sck = (Socket)Session["socket"];
+                LocalIP.Text = GetLocalIP();
+                RemoteIP.Text = GetLocalIP();
             }
             else
             {
@@ -71,9 +73,12 @@ namespace Connect.Pages
         protected void Connect_Click(object sender, EventArgs e)
         {
             // binding Socket
-            epLocal = new IPEndPoint(IPAddress.Parse(LocalIP.Text), Convert.ToInt32(Port1.Text));
-            sck.Bind(epLocal);
-
+            if(Session["socket"] == null)
+            {
+                epLocal = new IPEndPoint(IPAddress.Parse(LocalIP.Text), Convert.ToInt32(Port1.Text));
+                sck.Bind(epLocal);
+            }
+           
             // connect to remote IP and port
             epRemote = new IPEndPoint(IPAddress.Parse(RemoteIP.Text), Convert.ToInt32(Port2.Text));
             sck.Connect(epRemote);

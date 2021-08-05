@@ -29,7 +29,7 @@
 
                     <asp:Button ID="Connect" runat="server" Text="Connect" CssClass="btn btn-outline-primary px-5" OnClick="Connect_Click" />
                 </div>
-                <div class="chatwindow" style="height: 500px;background-color: beige;margin-top: 12px;border-radius: 4px;">
+                <div class="chatwindow mt-3 mb-3" style="height: 500px;background-color: beige;border-radius: 4px;">
                     <h1>chatwindow</h1>
                     <asp:ListBox ID="ListMsg" runat="server"></asp:ListBox>
                 </div>

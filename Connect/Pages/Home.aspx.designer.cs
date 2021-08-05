@@ -15,6 +15,24 @@ namespace Connect.Pages
     {
 
         /// <summary>
+        /// IP1Label control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label IP1Label;
+
+        /// <summary>
+        /// IP2Label control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label IP2Label;
+
+        /// <summary>
         /// Port1Label control.
         /// </summary>
         /// <remarks>

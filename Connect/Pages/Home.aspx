@@ -12,6 +12,14 @@
     <div class="container">
         <div class="row">
             <form runat="server" class="col-md-9 d-flex flex-column" style="height: 480px">
+                   <div class="d-flex gap-3 mb-3">
+                    <asp:Label ID="IP1Label" runat="server" Text="IP1" CssClass="form-label"></asp:Label>
+                    <asp:TextBox ID="LocalIP" runat="server" CssClass="form-control"></asp:TextBox>
+
+                    <asp:Label ID="IP2Label" runat="server" Text="IP2" CssClass="form-label"></asp:Label>
+                    <asp:TextBox ID="RemoteIP" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+
                 <div class="d-flex gap-3">
                     <asp:Label ID="Port1Label" runat="server" Text="Port1" CssClass="form-label"></asp:Label>
                     <asp:TextBox ID="Port1" runat="server" CssClass="form-control"></asp:TextBox>

@@ -24,7 +24,6 @@ namespace Connect.Pages
         string localIp, remoteIp;
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
                 GetAllUsers();

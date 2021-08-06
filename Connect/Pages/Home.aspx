@@ -41,6 +41,8 @@
             e.preventDefault();
         });
 
+        var name = '<%= this.UserName %>';
+
         $(function () {
 
             // Declare a proxy to reference the hub. 
@@ -55,7 +57,7 @@
 
             $.connection.hub.start().done(function () {
                 $('#sendmessage').click(function () {
-                    chat.server.send("Name", $('#message').val());
+                    chat.server.send(name, $('#message').val());
                     $('#message').val('').focus();
                 });
             });

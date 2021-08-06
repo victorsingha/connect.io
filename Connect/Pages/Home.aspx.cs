@@ -18,7 +18,7 @@ namespace Connect.Pages
         static string connectionString = ConfigurationManager.ConnectionStrings["ConnectConnectionString"].ConnectionString;
         SqlConnection connection = new SqlConnection(connectionString);
 
-        string UserName;
+        public string UserName;
 
         protected void Page_Load(object sender, EventArgs e)
         {

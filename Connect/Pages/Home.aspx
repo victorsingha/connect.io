@@ -13,9 +13,7 @@
         <div class="row">
             <form id="form" class="col-md-9 d-flex flex-column" style="height: 480px">
                 <div class="chatwindow mb-3" style="height: 500px; background-color: beige; border-radius: 4px;">
-                    <h1>chatwindow</h1>
                     <ul id="discussion"></ul>
-
                 </div>
                 <div class="d-flex gap-3">
                     <input id="message" class="form-control" />
@@ -50,7 +48,13 @@
             chat.client.broadcastMessage = function (username, message) {
                 var encodedName = $('<div/>').text(username).html();
                 var encodedMessage = $('<div/>').text(message).html();
-                $('#discussion').append('<li><strong>' + encodedName + '</strong>:' + encodedMessage + '</li>');
+
+                if (username == name) {
+                    $('#discussion').append('<li class="me"><strong>' + encodedName + '</strong>:' + encodedMessage + '</li>');
+                } else {
+                    $('#discussion').append('<li class="him"><strong>' + encodedName + '</strong>:' + encodedMessage + '</li>');
+                }
+
             };
 
 

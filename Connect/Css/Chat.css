@@ -8,14 +8,14 @@ ul {
     ul li {
         display: inline-block;
         clear: both;
-        padding: 20px;
+        padding: 10px;
         border-radius: 30px;
         margin-bottom: 2px;
         font-family: Helvetica, Arial, sans-serif;
     }
 
 .him {
-    background: #eee;
+    background: white;
     float: left;
 }
 
@@ -25,11 +25,11 @@ ul {
     color: #fff;
 }
 
-.him + .me {
+/*.him + .me {
     border-bottom-right-radius: 5px;
 }
 
 .me + .me {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-}
+}*/

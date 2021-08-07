@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row">
             <form id="form" class="col-md-9 d-flex flex-column" style="height: 480px">
-                <div class="chatwindow mb-3" style="height: 500px; background-color: beige; border-radius: 4px;">
+                <div class="chatwindow mb-3" style="height: 500px; background-color: beige; border-radius: 4px;padding:10px;">
                     <ul id="discussion"></ul>
                 </div>
                 <div class="d-flex gap-3">
@@ -50,9 +50,9 @@
                 var encodedMessage = $('<div/>').text(message).html();
 
                 if (username == name) {
-                    $('#discussion').append('<li class="me"><strong>' + encodedName + '</strong>:' + encodedMessage + '</li>');
+                    $('#discussion').append('<li class="me"><strong>' + encodedName + ':</strong> ' + encodedMessage + '</li>');
                 } else {
-                    $('#discussion').append('<li class="him"><strong>' + encodedName + '</strong>:' + encodedMessage + '</li>');
+                    $('#discussion').append('<li class="him"><strong>' + encodedName + ':</strong> ' + encodedMessage + '</li>');
                 }
 
             };

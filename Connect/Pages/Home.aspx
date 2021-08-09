@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row">
             <form id="form" class="col-md-9 d-flex flex-column" style="height: 480px">
-                <div class="chatwindow mb-3" style="height: 500px; background-color: beige; border-radius: 4px;padding:10px;">
+                <div class="chatwindow mb-3" style="height: 500px; background-color: beige; border-radius: 4px; padding: 10px;">
                     <ul id="discussion"></ul>
                 </div>
                 <div class="d-flex gap-3">
@@ -21,6 +21,8 @@
                 </div>
             </form>
             <div class="col-md-3 d-none d-md-block card pt-2">
+                <ul id="user-list" class="list-group">
+                </ul>
                 <asp:Repeater ID="UsersRepeater" runat="server">
                     <HeaderTemplate>
                     </HeaderTemplate>
@@ -40,11 +42,11 @@
         });
 
         var name = '<%= this.UserName %>';
-
         $(function () {
 
             // Declare a proxy to reference the hub. 
             var chat = $.connection.chatHub;
+
             chat.client.broadcastMessage = function (username, message) {
                 var encodedName = $('<div/>').text(username).html();
                 var encodedMessage = $('<div/>').text(message).html();
@@ -55,16 +57,22 @@
                     $('#discussion').append('<li class="him"><strong>' + encodedName + ':</strong> ' + encodedMessage + '</li>');
                 }
 
-            };
-
-
+            };    
 
             $.connection.hub.start().done(function () {
+                //chat.server.addUser(name);      
+                //chat.server.getAllActiveConnections().done(function (data) {
+                //    console.log(data);
+                //});
+
+                $("#user-list").append(`<li class='list-group-item'>${name}</li>`);
+                  
                 $('#sendmessage').click(function () {
                     chat.server.send(name, $('#message').val());
                     $('#message').val('').focus();
                 });
             });
+          
 
         });
 

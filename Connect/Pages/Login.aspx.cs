@@ -14,7 +14,7 @@ namespace Connect.Pages
         UserService userService = new UserService();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
         protected void LoginBtnClick(object sender,EventArgs e)
         {
@@ -29,7 +29,7 @@ namespace Connect.Pages
                 Session["UserId"] = response.UserId;
                 Session["Username"] = response.Username;
                 Session["Email"] = response.Email;
-                Response.Redirect("Home.aspx");
+                Response.Redirect("https://localhost:44323/Pages/Home");
             }
             else
             {

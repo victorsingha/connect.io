@@ -18,100 +18,27 @@ namespace Connect.Pages
         static string connectionString = ConfigurationManager.ConnectionStrings["ConnectConnectionString"].ConnectionString;
         SqlConnection connection = new SqlConnection(connectionString);
 
-        Socket sck;
-        EndPoint epLocal, epRemote;
-        byte[] buffer;
-        string localIp, remoteIp;
+        public string UserName;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            ListMsg.Items.Add("Welcome");
-
             if (!IsPostBack)
             {
-                GetAllUsers();
+                //GetAllUsers();
             }
-
-            // set up socket
-            sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-            sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-
-            // set up IP
-            localIp = GetLocalIP();
-            remoteIp = GetLocalIP();
-            
-        }
-
-        protected string GetLocalIP()
-        {
-            IPHostEntry host;
-            host = Dns.GetHostEntry(Dns.GetHostName());
-            foreach (IPAddress ip in host.AddressList)
+            if (Session["Username"] != null)
             {
-                if (ip.AddressFamily == AddressFamily.InterNetwork)
-                {
-                    return ip.ToString();
-                }
+                UserName = Session["Username"].ToString();
             }
-            return "127.0.0.1";
-        }
-
-        protected void Connect_Click(object sender, EventArgs e)
-        {
-            // binding Socket
-            epLocal = new IPEndPoint(IPAddress.Parse(localIp), Convert.ToInt32(Port1.Text));
-            sck.Bind(epLocal);
-
-            // connect to remote IP and port
-            epRemote = new IPEndPoint(IPAddress.Parse(remoteIp), Convert.ToInt32(Port2.Text));
-            sck.Connect(epRemote);
-
-            // starts to listen to an specific port
-            buffer = new byte[1500];
-            sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new
-            AsyncCallback(MessageCallBack), buffer);
-        }
-
-        private void MessageCallBack(IAsyncResult aResult)
-        {
-            try
+            else
             {
-                byte[] receivedData = new byte[1500];
-                receivedData = (byte[])aResult.AsyncState;
-
-                //convert byte[] to string
-                ASCIIEncoding aEnconding = new ASCIIEncoding();
-                string receivedMessage = aEnconding.GetString(receivedData);
-
-                //Adding Msg To List
-                //MessageList.Items.Add("Remote: " + receivedMessage);
-                ListMsg.Items.Add("Remote: " + receivedMessage);
-
-                // starts to listen the socket again
-                buffer = new byte[1500];
-                sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
-
+                //Response.Redirect("Login.aspx");
             }
-            catch(Exception e)
-            {
-                throw e;
-            }
-
         }
 
-        protected void SendBtnClick(object sender,EventArgs e)
-        {
-            // Convert string msg to byte
-            ASCIIEncoding aEncoding = new ASCIIEncoding();
-            byte[] sendingMessage = new byte[1500];
-            sendingMessage = aEncoding.GetBytes(message.Text);
+     
 
-            // Sending Encoded Message
-            sck.Send(sendingMessage);
 
-            // add to listbox
-            ListMsg.Items.Add("Local: " + message.Text);
-            message.Text = "";
-        }
         protected void GetAllUsers()
         {
             try
@@ -142,6 +69,13 @@ namespace Connect.Pages
             {
                 throw e;
             }
+        }
+
+        protected void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("Login.aspx");
         }
     }
 }

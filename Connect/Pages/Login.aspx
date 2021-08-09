@@ -29,7 +29,7 @@
 
             <div class="d-flex flex-column justify-content-between">
                 <asp:Button ID="login" runat="server" Text="Login" CssClass="btn btn-outline-primary mb-3" OnClick="LoginBtnClick" />
-                <a href="./Register.aspx">Create an Account.</a>
+                <a href="https://localhost:44323/Pages/Register">Create an Account.</a>
             </div>
         </div>
     </form>

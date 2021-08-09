@@ -1,35 +1,24 @@
 ﻿<%@ Page Title="Chat" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="Connect.Pages.Home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div style="width: 100vw; position: absolute; top: 15px;">
-        <nav class="afterloginnav container d-flex flex-row-reverse gap-3">
-            <a href="./Login.aspx" class="fs-5">logout</a>
-            <a href="./Users.aspx" class="fs-5">users</a>
-        </nav>
+    <div style="width: 100vw; position: absolute; top: 6px;">
+        <form runat="server" class="afterloginnav container d-flex flex-row-reverse gap-3">
+            <asp:Button ID="LogoutBtn" runat="server" Text="logout" CssClass="btn btn-outline-light fs-5" OnClick="LogoutBtn_Click" />
+            <a href="./Users.aspx" class="fs-5 mt-2">users</a>
+        </form>
     </div>
 
 
     <div class="container">
         <div class="row">
-            <form runat="server" class="col-md-9 d-flex flex-column" style="height: 480px">
-                <div class="d-flex gap-3">
-                    <asp:Label ID="Port1Label" runat="server" Text="Port1" CssClass="form-label"></asp:Label>
-                    <asp:TextBox ID="Port1" runat="server" CssClass="form-control"></asp:TextBox>
-
-                    <asp:Label ID="Port2Label" runat="server" Text="Port2" CssClass="form-label"></asp:Label>
-                    <asp:TextBox ID="Port2" runat="server" CssClass="form-control"></asp:TextBox>
-
-                    <asp:Button ID="Connect" runat="server" Text="Connect" CssClass="btn btn-outline-primary px-5" OnClick="Connect_Click" />
-                </div>
-                <div class="chatwindow" style="height: 500px;background-color: beige;margin-top: 12px;border-radius: 4px;">
-                    <h1>chatwindow</h1>
-                    <asp:ListBox ID="ListMsg" runat="server"></asp:ListBox>
+            <form id="form" class="col-md-9 d-flex flex-column" style="height: 480px">
+                <div class="chatwindow mb-3" style="height: 500px; background-color: beige; border-radius: 4px;padding:10px;">
+                    <ul id="discussion"></ul>
                 </div>
                 <div class="d-flex gap-3">
-                    <asp:TextBox ID="message" runat="server" CssClass="form-control"></asp:TextBox>
-                    <asp:Button ID="send" runat="server" Text="Send" CssClass="btn btn-outline-primary px-5" OnClick="SendBtnClick" />
+                    <input id="message" class="form-control" />
+                    <button class="btn btn-outline-primary px-5" id="sendmessage">Send</button>
                 </div>
-
             </form>
             <div class="col-md-3 d-none d-md-block card pt-2">
                 <asp:Repeater ID="UsersRepeater" runat="server">
@@ -43,5 +32,43 @@
             </div>
         </div>
     </div>
+
+    <script>
+
+        $("#form").submit(function (e) {
+            e.preventDefault();
+        });
+
+        var name = '<%= this.UserName %>';
+
+        $(function () {
+
+            // Declare a proxy to reference the hub. 
+            var chat = $.connection.chatHub;
+            chat.client.broadcastMessage = function (username, message) {
+                var encodedName = $('<div/>').text(username).html();
+                var encodedMessage = $('<div/>').text(message).html();
+
+                if (username == name) {
+                    $('#discussion').append('<li class="me"><strong>' + encodedName + ':</strong> ' + encodedMessage + '</li>');
+                } else {
+                    $('#discussion').append('<li class="him"><strong>' + encodedName + ':</strong> ' + encodedMessage + '</li>');
+                }
+
+            };
+
+
+
+            $.connection.hub.start().done(function () {
+                $('#sendmessage').click(function () {
+                    chat.server.send(name, $('#message').val());
+                    $('#message').val('').focus();
+                });
+            });
+
+        });
+
+
+    </script>
 
 </asp:Content>

@@ -21,6 +21,7 @@
                 </div>
             </form>
             <div class="col-md-3 d-none d-md-block card pt-2">
+                <h4>Online Users</h4>
                 <ul id="user-list" class="list-group">
                 </ul>
                 <asp:Repeater ID="UsersRepeater" runat="server">
@@ -59,13 +60,17 @@
 
             };    
 
+            chat.client.onlineUsers = function (username) {
+                $("#user-list").append(`<li>${username}</li>`);
+            };
+
             $.connection.hub.start().done(function () {
-                //chat.server.addUser(name);      
+                chat.server.addUser(name);      
                 //chat.server.getAllActiveConnections().done(function (data) {
                 //    console.log(data);
                 //});
 
-                $("#user-list").append(`<li class='list-group-item'>${name}</li>`);
+                //$("#user-list").append(`<li class='list-group-item'>${name}</li>`);
                   
                 $('#sendmessage').click(function () {
                     chat.server.send(name, $('#message').val());

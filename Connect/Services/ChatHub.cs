@@ -16,7 +16,9 @@ namespace SignalRChat
 
         public void AddUser(string userName)
         {
-            Users.Add(userName);
+            //Users.Add(userName);
+            Clients.All.onlineUsers(userName);
+            
         }
 
         //return list of all active connections
